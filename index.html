@@ -44,7 +44,7 @@
     font-size: clamp(24px, 4vw, 34px);
     margin: 0 0 6px; font-weight: 700; letter-spacing: -0.01em;
   }
-  .sub{ color: var(--text-dim); font-size: 14.5px; max-width: 720px; line-height:1.55;}
+  .sub{ color: var(--text-dim); font-size: 14.5px; max-width: 760px; line-height:1.55;}
 
   .legend{
     display:flex; flex-wrap:wrap; gap: 8px 18px;
@@ -67,7 +67,6 @@
   .counter.full{ color: var(--accent); border-color: rgba(232,163,61,.4); }
 
   .grid-block{ margin-bottom: 14px; }
-  .grid-title{ font-family:'JetBrains Mono', monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color: var(--text-dim); margin: 0 0 8px; }
   .tense-grid{ display:grid; grid-template-columns: 62px repeat(4, 1fr); gap: 6px; }
   .col-h{ font-family:'JetBrains Mono', monospace; font-size: 10.5px; color: var(--text-dim); text-align:center; padding-bottom:2px; line-height:1.25; align-self:end; }
   .row-h{ display:flex; align-items:center; font-family:'JetBrains Mono', monospace; font-size: 10.5px; color: var(--text-dim); }
@@ -125,9 +124,8 @@
   .mrow-h.corner{ position:sticky; top:0; left:0; z-index:4; }
   .mcell{
     padding: 14px 16px; border-bottom:1px solid var(--line); border-right:1px solid var(--line);
-    min-width: 240px; font-size:12.5px;
+    min-width: 260px; font-size:12.5px; vertical-align:top;
   }
-  .mcell:last-child, .mrow-h.corner + .mcell:last-child { }
   .mcell-head{
     position:sticky; top:0; z-index:3; background: var(--panel-2);
     display:flex; align-items:center; justify-content:space-between; gap:8px;
@@ -143,8 +141,8 @@
   .mremove:hover{ color:#E86A92; border-color: rgba(232,106,146,.4); }
 
   .mchip{
-    font-family:'JetBrains Mono', monospace; font-weight: 600; font-size: 12.5px;
-    padding: 6px 9px; border-radius: 7px; border: 1px solid transparent;
+    font-family:'JetBrains Mono', monospace; font-weight: 600; font-size: 12px;
+    padding: 5px 8px; border-radius: 7px; border: 1px solid transparent;
     white-space: nowrap; display:inline-block; margin: 2px 2px 2px 0;
   }
   .mchip.s{ background: var(--s-bg); color: var(--s); border-color: rgba(91,141,239,.35); }
@@ -154,10 +152,10 @@
   .mchip.o{ background: var(--o-bg); color: var(--o); border-color: rgba(76,175,125,.35); }
   .mpl{ color: var(--text-dim); font-family:'JetBrains Mono', monospace; font-size:12px; margin: 0 1px; }
 
-  .mform{ font-family:'JetBrains Mono', monospace; font-size:12px; color: var(--text); background: var(--panel-3); border:1px solid var(--line); border-radius:8px; padding:8px 10px; margin-bottom:8px; }
-  .mexample{ background: linear-gradient(135deg, rgba(232,163,61,.08), rgba(91,141,239,.06)); border:1px solid var(--line); border-radius:8px; padding:9px 11px; }
-  .mexample .en{ font-size:13px; font-weight:600; }
-  .mexample .vi{ font-size:11.5px; color: var(--text-dim); margin-top:3px; font-style:italic; }
+  .mform{ font-family:'JetBrains Mono', monospace; font-size:11.5px; color: var(--text); background: var(--panel-3); border:1px solid var(--line); border-radius:8px; padding:7px 9px; margin-bottom:7px; }
+  .mexample{ background: linear-gradient(135deg, rgba(232,163,61,.08), rgba(91,141,239,.06)); border:1px solid var(--line); border-radius:8px; padding:8px 10px; }
+  .mexample .en{ font-size:12.5px; font-weight:600; }
+  .mexample .vi{ font-size:11px; color: var(--text-dim); margin-top:3px; font-style:italic; }
   .msignals{ display:flex; flex-wrap:wrap; gap:6px; }
   .mpill{ font-size: 11px; padding: 4px 9px; border-radius: 999px; background: var(--panel-3); border:1px solid var(--line); color: var(--text-dim); }
   .musage{ font-size:12.5px; color: var(--text-dim); line-height:1.55; }
@@ -168,12 +166,36 @@
     color: var(--be); background: var(--be-bg); border:1px solid rgba(232,106,146,.35);
     border-radius:999px; padding:3px 8px; margin-bottom:7px;
   }
-  .rare-note{ font-size:11.5px; color: var(--text-dim); line-height:1.5; margin-top:7px; font-style:italic; }
+  .rare-note{ font-size:11px; color: var(--text-dim); line-height:1.5; margin-top:6px; font-style:italic; }
 
-  @media (max-width: 640px){
-    .tense-grid{ grid-template-columns: 44px repeat(4, 1fr); }
-    .tbtn{ font-size: 10.5px; padding: 9px 4px; }
+  .mvoice-label{
+    font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color: var(--text-dim); margin-bottom:5px;
   }
+  .mvoice-label.active-lbl{ color: var(--s); }
+  .mvoice-label.passive-lbl{ color: var(--accent); }
+  .mactive-block{ margin-bottom:10px; padding-bottom:10px; border-bottom:1px dashed var(--line); }
+  .mconvert-arrow{
+    text-align:center; font-family:'JetBrains Mono', monospace; font-size:11px; color: var(--accent);
+    margin: 2px 0 10px; display:flex; align-items:center; gap:8px;
+  }
+  .mconvert-arrow::before, .mconvert-arrow::after{ content:''; flex:1; height:1px; background: var(--line); }
+  .mswap{ font-size:11px; color: var(--text-dim); margin: 6px 0 10px; line-height:1.5; }
+  .mswap b{ font-weight:600; }
+  .mswap .o{ color: var(--o); } .mswap .s{ color: var(--s); }
+
+  /* ---- Conjugation breakdown (by subject) ---- */
+  .mskeleton{ margin-bottom:11px; padding-bottom:11px; border-bottom:1px dashed var(--line); }
+  .mskeleton-label{ font-family:'JetBrains Mono', monospace; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--text-dim); margin-bottom:5px; }
+  .cbranch-title{
+    font-family:'JetBrains Mono', monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:.06em;
+    color: var(--accent); margin:12px 0 8px; padding-top:10px; border-top:1px solid var(--line);
+  }
+  .cbranch-title:first-child{ margin-top:0; padding-top:0; border-top:none; }
+  .cgroup{ margin-bottom:9px; }
+  .cgroup:last-child{ margin-bottom:0; }
+  .cgroup-label{ font-family:'JetBrains Mono', monospace; font-size:10.5px; color: var(--text-dim); margin-bottom:4px; }
+  .cgroup-label b{ color: var(--text); font-weight:600; }
 </style>
 </head>
 <body>
@@ -181,7 +203,7 @@
   <header>
     <p class="eyebrow">Ngữ pháp tiếng Anh · Đối chiếu cấu trúc</p>
     <h1>So Sánh Các Thì Tiếng Anh</h1>
-    <p class="sub">Chọn 2–4 thì bên dưới để xếp cạnh nhau theo cột. Các thành phần công thức được tô cùng một màu xuyên suốt các cột (chủ ngữ, trợ động từ, động từ chính, tân ngữ...) để dễ dàng nhận ra điểm giống và khác nhau giữa các thì.</p>
+    <p class="sub">Chọn 2–4 thì bên dưới để xếp cạnh nhau theo cột. Mỗi thì được chia rõ theo <b style="color:var(--text)">biến thể động từ theo chủ ngữ</b> (V1, V(s/es), to be...), kèm ví dụ cho từng trường hợp — để dễ nhận ra điểm giống và khác nhau giữa các thì.</p>
   </header>
 
   <div class="legend">
@@ -224,165 +246,340 @@
 </div>
 
 <script>
+/* helper chip builders */
+const S = {r:'s',t:'S'};
+const O = {r:'o',t:'O'};
+function AUX(t){ return {r:'aux',t}; }
+function BE(t){ return {r:'be',t}; }
+function V(t){ return {r:'v',t}; }
+
 const TENSES = {
   ps: { row:0, col:0, name:'Present Simple', vi:'Hiện tại đơn',
-    parts:[{r:'s',t:'S'},{r:'v',t:'V1(+s/es)'},{r:'o',t:'O'}],
-    neg:'S + do/does + not + V1 + O', ques:'Do/Does + S + V1 + O ?', wh:'Wh + do/does + S + V1 + O ?',
-    negEx:{en:'She does not play tennis on weekdays.', vi:'Cô ấy không chơi tennis vào các ngày trong tuần.'},
-    quesEx:{en:'Does she play tennis every weekend?', vi:'Cô ấy có chơi tennis mỗi cuối tuần không?'},
-    whEx:{en:'Where does she play tennis?', vi:'Cô ấy chơi tennis ở đâu?'},
     en:'She plays tennis every weekend.', vi2:'Cô ấy chơi tennis mỗi cuối tuần.',
     signals:['every day','usually','always','often','never'],
     usage:'Diễn tả <b>thói quen</b>, <b>sự thật hiển nhiên</b> hoặc lịch trình cố định.',
-    passive:{ parts:[{r:'s',t:'S'},{r:'be',t:'am/is/are'},{r:'v',t:'V3'},{r:'o',t:'(by O)'}],
+    conj:{
+      skeleton:[S,V('V'),O],
+      branches:[
+        { title:'Động từ thường',
+          groups:[
+            { label:'V1 · I / You / We / They', chips:[S,V('V1'),O], ex:{en:'I play tennis every weekend.', vi:'Tôi chơi tennis mỗi cuối tuần.'} },
+            { label:'V(s/es) · He / She / It', chips:[S,V('V(s/es)'),O], ex:{en:'She plays tennis every weekend.', vi:'Cô ấy chơi tennis mỗi cuối tuần.'} }
+          ],
+          neg:{ groups:[
+            { label:'don\'t · I / You / We / They', formula:'S + do not (don\'t) + V1 + O', ex:{en:'I don\'t play tennis on weekdays.', vi:'Tôi không chơi tennis vào các ngày trong tuần.'} },
+            { label:'doesn\'t · He / She / It', formula:'S + does not (doesn\'t) + V1 + O', ex:{en:'She doesn\'t play tennis on weekdays.', vi:'Cô ấy không chơi tennis vào các ngày trong tuần.'} }
+          ]},
+          ques:{ groups:[
+            { label:'Do · I / You / We / They', formula:'Do + S + V1 + O ?', ex:{en:'Do you play tennis every weekend?', vi:'Bạn có chơi tennis mỗi cuối tuần không?'} },
+            { label:'Does · He / She / It', formula:'Does + S + V1 + O ?', ex:{en:'Does she play tennis every weekend?', vi:'Cô ấy có chơi tennis mỗi cuối tuần không?'} }
+          ]}
+        },
+        { title:'Động từ TO BE',
+          groups:[
+            { label:'am / is / are · mọi chủ ngữ', chips:[S,BE('am/is/are'),O], ex:{en:'She is a tennis player.', vi:'Cô ấy là một người chơi tennis.'} }
+          ],
+          neg:{ groups:[
+            { label:'am not / isn\'t / aren\'t', formula:'S + am/is/are + not + O', ex:{en:'She isn\'t a tennis player.', vi:'Cô ấy không phải là người chơi tennis.'} }
+          ]},
+          ques:{ groups:[
+            { label:'Am / Is / Are', formula:'Am/Is/Are + S + O ?', ex:{en:'Is she a tennis player?', vi:'Cô ấy có phải là người chơi tennis không?'} }
+          ]}
+        }
+      ]
+    },
+    wh:'Wh + do/does/am/is/are + S + (V1/O) ?', whEx:{en:'Where does she play tennis?', vi:'Cô ấy chơi tennis ở đâu?'},
+    passive:{ parts:[S,BE('am/is/are'),V('V3'),{r:'o',t:'(by O)'}],
       en:'Tennis is played (by her) every weekend.', vi2:'Tennis được chơi (bởi cô ấy) mỗi cuối tuần.' } },
 
   pc: { row:0, col:1, name:'Present Continuous', vi:'Hiện tại tiếp diễn',
-    parts:[{r:'s',t:'S'},{r:'aux',t:'am/is/are'},{r:'v',t:'V-ing'},{r:'o',t:'O'}],
-    neg:'S + am/is/are + not + V-ing + O', ques:'Am/Is/Are + S + V-ing + O ?', wh:'Wh + am/is/are + S + V-ing + O ?',
-    negEx:{en:'She is not playing tennis right now.', vi:'Cô ấy không đang chơi tennis lúc này.'},
-    quesEx:{en:'Is she playing tennis right now?', vi:'Cô ấy có đang chơi tennis lúc này không?'},
-    whEx:{en:'What is she playing right now?', vi:'Cô ấy đang chơi gì lúc này?'},
     en:'She is playing tennis right now.', vi2:'Cô ấy đang chơi tennis ngay lúc này.',
     signals:['now','right now','at the moment','Look!','Listen!'],
     usage:'Diễn tả hành động đang <b>xảy ra tại thời điểm nói</b>.',
-    passive:{ parts:[{r:'s',t:'S'},{r:'be',t:'am/is/are'},{r:'aux',t:'being'},{r:'v',t:'V3'},{r:'o',t:'(by O)'}],
+    conj:{
+      skeleton:[S,BE('be'),V('V-ing'),O],
+      branches:[
+        { groups:[
+          { label:'am / is / are · mọi chủ ngữ', chips:[S,BE('am/is/are'),V('V-ing'),O], ex:{en:'She is playing tennis right now.', vi:'Cô ấy đang chơi tennis ngay lúc này.'} }
+        ],
+        neg:{ groups:[
+          { label:'am not / isn\'t / aren\'t', formula:'S + am/is/are + not + V-ing + O', ex:{en:'She isn\'t playing tennis right now.', vi:'Cô ấy không đang chơi tennis lúc này.'} }
+        ]},
+        ques:{ groups:[
+          { label:'Am / Is / Are', formula:'Am/Is/Are + S + V-ing + O ?', ex:{en:'Is she playing tennis right now?', vi:'Cô ấy có đang chơi tennis lúc này không?'} }
+        ]} }
+      ]
+    },
+    wh:'Wh + am/is/are + S + V-ing + O ?', whEx:{en:'What is she playing right now?', vi:'Cô ấy đang chơi gì lúc này?'},
+    passive:{ parts:[S,BE('am/is/are'),AUX('being'),V('V3'),{r:'o',t:'(by O)'}],
       en:'Tennis is being played right now.', vi2:'Tennis đang được chơi ngay lúc này.' } },
 
   pp: { row:0, col:2, name:'Present Perfect', vi:'Hiện tại hoàn thành',
-    parts:[{r:'s',t:'S'},{r:'aux',t:'have/has'},{r:'v',t:'V3'},{r:'o',t:'O'}],
-    neg:'S + have/has + not + V3 + O', ques:'Have/Has + S + V3 + O ?', wh:'Wh + have/has + S + V3 + O ?',
-    negEx:{en:'She has not played tennis since 2010.', vi:'Cô ấy chưa chơi tennis kể từ năm 2010.'},
-    quesEx:{en:'Has she played tennis since 2010?', vi:'Cô ấy đã chơi tennis từ năm 2010 chưa?'},
-    whEx:{en:'How long has she played tennis?', vi:'Cô ấy đã chơi tennis bao lâu rồi?'},
-    en:'She has played tennis since 2010.', vi2:'Cô ấy đã chơi tennis từ năm 2010 (đến giờ).',
+    en:'She has played tennis since 2010.', vi2:'Cô ấy đã chơi tennis từ năm 2010.',
     signals:['already','just','yet','since','for','ever'],
     usage:'Hành động đã xảy ra và <b>còn liên quan đến hiện tại</b>, không rõ thời điểm cụ thể.',
-    passive:{ parts:[{r:'s',t:'S'},{r:'aux',t:'have/has'},{r:'aux',t:'been'},{r:'v',t:'V3'},{r:'o',t:'(by O)'}],
+    conj:{
+      skeleton:[S,AUX('have/has'),V('V3'),O],
+      branches:[
+        { groups:[
+          { label:'have · I / You / We / They', chips:[S,AUX('have'),V('V3'),O], ex:{en:'I have played tennis since 2010.', vi:'Tôi đã chơi tennis từ năm 2010.'} },
+          { label:'has · He / She / It', chips:[S,AUX('has'),V('V3'),O], ex:{en:'She has played tennis since 2010.', vi:'Cô ấy đã chơi tennis từ năm 2010.'} }
+        ],
+        neg:{ groups:[
+          { label:'haven\'t · I / You / We / They', formula:'S + have + not (haven\'t) + V3 + O', ex:{en:'I haven\'t played tennis since 2010.', vi:'Tôi chưa chơi tennis từ năm 2010.'} },
+          { label:'hasn\'t · He / She / It', formula:'S + has + not (hasn\'t) + V3 + O', ex:{en:'She hasn\'t played tennis since 2010.', vi:'Cô ấy chưa chơi tennis từ năm 2010.'} }
+        ]},
+        ques:{ groups:[
+          { label:'Have · I / You / We / They', formula:'Have + S + V3 + O ?', ex:{en:'Have you played tennis since 2010?', vi:'Bạn đã chơi tennis từ năm 2010 chưa?'} },
+          { label:'Has · He / She / It', formula:'Has + S + V3 + O ?', ex:{en:'Has she played tennis since 2010?', vi:'Cô ấy đã chơi tennis từ năm 2010 chưa?'} }
+        ]} }
+      ]
+    },
+    wh:'Wh + have/has + S + V3 + O ?', whEx:{en:'How long has she played tennis?', vi:'Cô ấy đã chơi tennis bao lâu rồi?'},
+    passive:{ parts:[S,AUX('have/has'),AUX('been'),V('V3'),{r:'o',t:'(by O)'}],
       en:'Tennis has been played since 2010.', vi2:'Tennis đã được chơi từ năm 2010.' } },
 
   ppc:{ row:0, col:3, name:'Present Perfect Continuous', vi:'Hiện tại hoàn thành tiếp diễn',
-    parts:[{r:'s',t:'S'},{r:'aux',t:'have/has'},{r:'aux',t:'been'},{r:'v',t:'V-ing'},{r:'o',t:'O'}],
-    neg:'S + have/has + not + been + V-ing + O', ques:'Have/Has + S + been + V-ing + O ?', wh:'Wh + have/has + S + been + V-ing + O ?',
-    negEx:{en:'She has not been playing tennis for two hours.', vi:'Cô ấy chưa chơi tennis được hai tiếng.'},
-    quesEx:{en:'Has she been playing tennis for two hours?', vi:'Cô ấy đã chơi tennis được hai tiếng chưa?'},
-    whEx:{en:'How long has she been playing tennis?', vi:'Cô ấy đã chơi tennis được bao lâu rồi?'},
-    en:'She has been playing tennis for two hours.', vi2:'Cô ấy đã chơi tennis được hai tiếng (và có thể vẫn tiếp tục).',
+    en:'She has been playing tennis for two hours.', vi2:'Cô ấy đã chơi tennis được hai tiếng.',
     signals:['for','since','all day','how long'],
     usage:'Nhấn mạnh <b>quá trình kéo dài</b> của hành động tính đến hiện tại.',
-    passive:{ parts:[{r:'s',t:'S'},{r:'aux',t:'have/has'},{r:'aux',t:'been'},{r:'aux',t:'being'},{r:'v',t:'V3'},{r:'o',t:'(by O)'}],
+    conj:{
+      skeleton:[S,AUX('have/has'),AUX('been'),V('V-ing'),O],
+      branches:[
+        { groups:[
+          { label:'have · I / You / We / They', chips:[S,AUX('have'),AUX('been'),V('V-ing'),O], ex:{en:'I have been playing tennis for two hours.', vi:'Tôi đã chơi tennis được hai tiếng.'} },
+          { label:'has · He / She / It', chips:[S,AUX('has'),AUX('been'),V('V-ing'),O], ex:{en:'She has been playing tennis for two hours.', vi:'Cô ấy đã chơi tennis được hai tiếng.'} }
+        ],
+        neg:{ groups:[
+          { label:'haven\'t · I / You / We / They', formula:'S + haven\'t + been + V-ing + O', ex:{en:'I haven\'t been playing tennis for two hours.', vi:'Tôi chưa chơi tennis được hai tiếng.'} },
+          { label:'hasn\'t · He / She / It', formula:'S + hasn\'t + been + V-ing + O', ex:{en:'She hasn\'t been playing tennis for two hours.', vi:'Cô ấy chưa chơi tennis được hai tiếng.'} }
+        ]},
+        ques:{ groups:[
+          { label:'Have · I / You / We / They', formula:'Have + S + been + V-ing + O ?', ex:{en:'Have you been playing tennis for two hours?', vi:'Bạn đã chơi tennis được hai tiếng chưa?'} },
+          { label:'Has · He / She / It', formula:'Has + S + been + V-ing + O ?', ex:{en:'Has she been playing tennis for two hours?', vi:'Cô ấy đã chơi tennis được hai tiếng chưa?'} }
+        ]} }
+      ]
+    },
+    wh:'Wh + have/has + S + been + V-ing ?', whEx:{en:'How long has she been playing tennis?', vi:'Cô ấy đã chơi tennis được bao lâu rồi?'},
+    passive:{ parts:[S,AUX('have/has'),AUX('been'),AUX('being'),V('V3'),{r:'o',t:'(by O)'}],
       en:'Tennis has been being played for two hours.', vi2:'Tennis đã được chơi trong hai tiếng.', rare:true,
       note:'Cấu trúc quá cồng kềnh nên hầu như không dùng trong thực tế — thường diễn đạt lại bằng thì hiện tại hoàn thành bị động.' } },
 
   pas:{ row:1, col:0, name:'Past Simple', vi:'Quá khứ đơn',
-    parts:[{r:'s',t:'S'},{r:'v',t:'V2'},{r:'o',t:'O'}],
-    neg:'S + did + not + V1 + O', ques:'Did + S + V1 + O ?', wh:'Wh + did + S + V1 + O ?',
-    negEx:{en:'She did not play tennis yesterday.', vi:'Cô ấy đã không chơi tennis vào hôm qua.'},
-    quesEx:{en:'Did she play tennis yesterday?', vi:'Cô ấy đã chơi tennis vào hôm qua phải không?'},
-    whEx:{en:'When did she play tennis?', vi:'Cô ấy đã chơi tennis khi nào?'},
     en:'She played tennis yesterday.', vi2:'Cô ấy đã chơi tennis vào hôm qua.',
     signals:['yesterday','last week','ago','in 2019'],
     usage:'Hành động đã <b>xảy ra và kết thúc</b> trong quá khứ, có thời gian xác định.',
-    passive:{ parts:[{r:'s',t:'S'},{r:'be',t:'was/were'},{r:'v',t:'V3'},{r:'o',t:'(by O)'}],
+    conj:{
+      skeleton:[S,V('V2'),O],
+      branches:[
+        { title:'Động từ thường',
+          groups:[
+            { label:'V2 · I / You / We / They (không đổi)', chips:[S,V('V2'),O], ex:{en:'I played tennis yesterday.', vi:'Tôi đã chơi tennis vào hôm qua.'} },
+            { label:'V2 · He / She / It (giống dòng trên)', chips:[S,V('V2'),O], ex:{en:'She played tennis yesterday.', vi:'Cô ấy đã chơi tennis vào hôm qua.'} }
+          ],
+          neg:{ groups:[
+            { label:'didn\'t · I / You / We / They', formula:'S + did not (didn\'t) + V1 + O', ex:{en:'I didn\'t play tennis yesterday.', vi:'Tôi đã không chơi tennis vào hôm qua.'} },
+            { label:'didn\'t · He / She / It (giống dòng trên)', formula:'S + did not (didn\'t) + V1 + O', ex:{en:'She didn\'t play tennis yesterday.', vi:'Cô ấy đã không chơi tennis vào hôm qua.'} }
+          ]},
+          ques:{ groups:[
+            { label:'Did · I / You / We / They', formula:'Did + S + V1 + O ?', ex:{en:'Did you play tennis yesterday?', vi:'Bạn đã chơi tennis vào hôm qua phải không?'} },
+            { label:'Did · He / She / It (giống dòng trên)', formula:'Did + S + V1 + O ?', ex:{en:'Did she play tennis yesterday?', vi:'Cô ấy đã chơi tennis vào hôm qua phải không?'} }
+          ]}
+        },
+        { title:'Động từ TO BE',
+          groups:[
+            { label:'was / were · mọi chủ ngữ', chips:[S,BE('was/were'),O], ex:{en:'She was tired after the match.', vi:'Cô ấy đã mệt sau trận đấu.'} }
+          ],
+          neg:{ groups:[
+            { label:'wasn\'t / weren\'t', formula:'S + was/were + not + O', ex:{en:'She wasn\'t tired after the match.', vi:'Cô ấy đã không mệt sau trận đấu.'} }
+          ]},
+          ques:{ groups:[
+            { label:'Was / Were', formula:'Was/Were + S + O ?', ex:{en:'Was she tired after the match?', vi:'Cô ấy có mệt sau trận đấu không?'} }
+          ]}
+        }
+      ]
+    },
+    wh:'Wh + did/was/were + S + (V1/O) ?', whEx:{en:'When did she play tennis?', vi:'Cô ấy đã chơi tennis khi nào?'},
+    passive:{ parts:[S,BE('was/were'),V('V3'),{r:'o',t:'(by O)'}],
       en:'Tennis was played yesterday.', vi2:'Tennis đã được chơi vào hôm qua.' } },
 
   pac:{ row:1, col:1, name:'Past Continuous', vi:'Quá khứ tiếp diễn',
-    parts:[{r:'s',t:'S'},{r:'aux',t:'was/were'},{r:'v',t:'V-ing'},{r:'o',t:'O'}],
-    neg:'S + was/were + not + V-ing + O', ques:'Was/Were + S + V-ing + O ?', wh:'Wh + was/were + S + V-ing + O ?',
-    negEx:{en:'She was not playing tennis at 8pm yesterday.', vi:'Cô ấy đã không chơi tennis lúc 8 giờ tối hôm qua.'},
-    quesEx:{en:'Was she playing tennis at 8pm yesterday?', vi:'Cô ấy có đang chơi tennis lúc 8 giờ tối hôm qua không?'},
-    whEx:{en:'What was she doing at 8pm yesterday?', vi:'Cô ấy đã làm gì lúc 8 giờ tối hôm qua?'},
     en:'She was playing tennis at 8pm yesterday.', vi2:'Cô ấy đang chơi tennis lúc 8 giờ tối hôm qua.',
     signals:['while','at that time','when + QK đơn'],
     usage:'Hành động đang <b>diễn ra tại một thời điểm xác định</b> trong quá khứ.',
-    passive:{ parts:[{r:'s',t:'S'},{r:'be',t:'was/were'},{r:'aux',t:'being'},{r:'v',t:'V3'},{r:'o',t:'(by O)'}],
+    conj:{
+      skeleton:[S,BE('was/were'),V('V-ing'),O],
+      branches:[
+        { groups:[
+          { label:'was / were · mọi chủ ngữ', chips:[S,BE('was/were'),V('V-ing'),O], ex:{en:'She was playing tennis at 8pm yesterday.', vi:'Cô ấy đang chơi tennis lúc 8 giờ tối hôm qua.'} }
+        ],
+        neg:{ groups:[
+          { label:'wasn\'t / weren\'t', formula:'S + was/were + not + V-ing + O', ex:{en:'She wasn\'t playing tennis at 8pm yesterday.', vi:'Cô ấy không đang chơi tennis lúc 8 giờ tối hôm qua.'} }
+        ]},
+        ques:{ groups:[
+          { label:'Was / Were', formula:'Was/Were + S + V-ing + O ?', ex:{en:'Was she playing tennis at 8pm yesterday?', vi:'Cô ấy có đang chơi tennis lúc 8 giờ tối hôm qua không?'} }
+        ]} }
+      ]
+    },
+    wh:'Wh + was/were + S + V-ing + O ?', whEx:{en:'What was she doing at 8pm yesterday?', vi:'Cô ấy đã làm gì lúc 8 giờ tối hôm qua?'},
+    passive:{ parts:[S,BE('was/were'),AUX('being'),V('V3'),{r:'o',t:'(by O)'}],
       en:'Tennis was being played at 8pm yesterday.', vi2:'Tennis đang được chơi lúc 8 giờ tối hôm qua.' } },
 
   pap:{ row:1, col:2, name:'Past Perfect', vi:'Quá khứ hoàn thành',
-    parts:[{r:'s',t:'S'},{r:'aux',t:'had'},{r:'v',t:'V3'},{r:'o',t:'O'}],
-    neg:'S + had + not + V3 + O', ques:'Had + S + V3 + O ?', wh:'Wh + had + S + V3 + O ?',
-    negEx:{en:'She had not played tennis before I arrived.', vi:'Cô ấy đã không chơi tennis xong trước khi tôi đến.'},
-    quesEx:{en:'Had she played tennis before I arrived?', vi:'Cô ấy đã chơi tennis xong trước khi tôi đến chưa?'},
-    whEx:{en:'What had she done before I arrived?', vi:'Cô ấy đã làm gì trước khi tôi đến?'},
     en:'She had played tennis before I arrived.', vi2:'Cô ấy đã chơi tennis xong trước khi tôi đến.',
     signals:['before','after','by the time','already'],
     usage:'Hành động xảy ra <b>trước một hành động khác</b> trong quá khứ.',
-    passive:{ parts:[{r:'s',t:'S'},{r:'aux',t:'had'},{r:'aux',t:'been'},{r:'v',t:'V3'},{r:'o',t:'(by O)'}],
+    conj:{
+      skeleton:[S,AUX('had'),V('V3'),O],
+      branches:[
+        { groups:[
+          { label:'had · mọi chủ ngữ (không đổi)', chips:[S,AUX('had'),V('V3'),O], ex:{en:'She had played tennis before I arrived.', vi:'Cô ấy đã chơi tennis xong trước khi tôi đến.'} }
+        ],
+        neg:{ groups:[
+          { label:'hadn\'t · mọi chủ ngữ', formula:'S + had not (hadn\'t) + V3 + O', ex:{en:'She hadn\'t played tennis before I arrived.', vi:'Cô ấy đã không chơi tennis xong trước khi tôi đến.'} }
+        ]},
+        ques:{ groups:[
+          { label:'Had · mọi chủ ngữ', formula:'Had + S + V3 + O ?', ex:{en:'Had she played tennis before I arrived?', vi:'Cô ấy đã chơi tennis xong trước khi tôi đến chưa?'} }
+        ]} }
+      ]
+    },
+    wh:'Wh + had + S + V3 ?', whEx:{en:'What had she done before I arrived?', vi:'Cô ấy đã làm gì trước khi tôi đến?'},
+    passive:{ parts:[S,AUX('had'),AUX('been'),V('V3'),{r:'o',t:'(by O)'}],
       en:'Tennis had been played before I arrived.', vi2:'Tennis đã được chơi xong trước khi tôi đến.' } },
 
   papc:{ row:1, col:3, name:'Past Perfect Continuous', vi:'Quá khứ hoàn thành tiếp diễn',
-    parts:[{r:'s',t:'S'},{r:'aux',t:'had'},{r:'aux',t:'been'},{r:'v',t:'V-ing'},{r:'o',t:'O'}],
-    neg:'S + had + not + been + V-ing + O', ques:'Had + S + been + V-ing + O ?', wh:'Wh + had + S + been + V-ing + O ?',
-    negEx:{en:'She had not been playing tennis for an hour before it rained.', vi:'Cô ấy đã không chơi tennis được một tiếng trước khi trời mưa.'},
-    quesEx:{en:'Had she been playing tennis for an hour before it rained?', vi:'Cô ấy đã chơi tennis được một tiếng trước khi trời mưa chưa?'},
-    whEx:{en:'How long had she been playing tennis before it rained?', vi:'Cô ấy đã chơi tennis được bao lâu trước khi trời mưa?'},
     en:'She had been playing tennis for an hour before it rained.', vi2:'Cô ấy đã chơi tennis được một tiếng trước khi trời mưa.',
     signals:['for','since','before'],
     usage:'Nhấn mạnh <b>quá trình kéo dài</b> trước một hành động khác trong quá khứ.',
-    passive:{ parts:[{r:'s',t:'S'},{r:'aux',t:'had'},{r:'aux',t:'been'},{r:'aux',t:'being'},{r:'v',t:'V3'},{r:'o',t:'(by O)'}],
+    conj:{
+      skeleton:[S,AUX('had'),AUX('been'),V('V-ing'),O],
+      branches:[
+        { groups:[
+          { label:'had · mọi chủ ngữ (không đổi)', chips:[S,AUX('had'),AUX('been'),V('V-ing'),O], ex:{en:'She had been playing tennis for an hour before it rained.', vi:'Cô ấy đã chơi tennis được một tiếng trước khi trời mưa.'} }
+        ],
+        neg:{ groups:[
+          { label:'hadn\'t · mọi chủ ngữ', formula:'S + hadn\'t + been + V-ing + O', ex:{en:'She hadn\'t been playing tennis for an hour before it rained.', vi:'Cô ấy đã không chơi tennis được một tiếng trước khi trời mưa.'} }
+        ]},
+        ques:{ groups:[
+          { label:'Had · mọi chủ ngữ', formula:'Had + S + been + V-ing + O ?', ex:{en:'Had she been playing tennis for an hour before it rained?', vi:'Cô ấy đã chơi tennis được một tiếng trước khi trời mưa chưa?'} }
+        ]} }
+      ]
+    },
+    wh:'Wh + had + S + been + V-ing ?', whEx:{en:'How long had she been playing tennis before it rained?', vi:'Cô ấy đã chơi tennis được bao lâu trước khi trời mưa?'},
+    passive:{ parts:[S,AUX('had'),AUX('been'),AUX('being'),V('V3'),{r:'o',t:'(by O)'}],
       en:'Tennis had been being played for an hour before it rained.', vi2:'Tennis đã được chơi trong một tiếng trước khi trời mưa.', rare:true,
       note:'Rất hiếm dùng vì quá cồng kềnh — hầu như không xuất hiện trong văn viết/nói thực tế.' } },
 
   fs: { row:2, col:0, name:'Future Simple', vi:'Tương lai đơn',
-    parts:[{r:'s',t:'S'},{r:'aux',t:'will'},{r:'v',t:'V1'},{r:'o',t:'O'}],
-    neg:'S + will + not + V1 + O', ques:'Will + S + V1 + O ?', wh:'Wh + will + S + V1 + O ?',
-    negEx:{en:'She will not play tennis tomorrow.', vi:'Cô ấy sẽ không chơi tennis vào ngày mai.'},
-    quesEx:{en:'Will she play tennis tomorrow?', vi:'Cô ấy sẽ chơi tennis vào ngày mai chứ?'},
-    whEx:{en:'When will she play tennis?', vi:'Khi nào cô ấy sẽ chơi tennis?'},
     en:'She will play tennis tomorrow.', vi2:'Cô ấy sẽ chơi tennis vào ngày mai.',
     signals:['tomorrow','next week','soon','I think','probably'],
     usage:'Diễn tả <b>dự đoán</b> hoặc <b>quyết định tức thời</b> ở tương lai.',
-    passive:{ parts:[{r:'s',t:'S'},{r:'aux',t:'will'},{r:'aux',t:'be'},{r:'v',t:'V3'},{r:'o',t:'(by O)'}],
+    conj:{
+      skeleton:[S,AUX('will'),V('V1'),O],
+      branches:[
+        { groups:[
+          { label:'will · mọi chủ ngữ (không đổi)', chips:[S,AUX('will'),V('V1'),O], ex:{en:'She will play tennis tomorrow.', vi:'Cô ấy sẽ chơi tennis vào ngày mai.'} }
+        ],
+        neg:{ groups:[
+          { label:'won\'t · mọi chủ ngữ', formula:'S + will not (won\'t) + V1 + O', ex:{en:'She won\'t play tennis tomorrow.', vi:'Cô ấy sẽ không chơi tennis vào ngày mai.'} }
+        ]},
+        ques:{ groups:[
+          { label:'Will · mọi chủ ngữ', formula:'Will + S + V1 + O ?', ex:{en:'Will she play tennis tomorrow?', vi:'Cô ấy sẽ chơi tennis vào ngày mai chứ?'} }
+        ]} }
+      ]
+    },
+    wh:'Wh + will + S + V1 ?', whEx:{en:'When will she play tennis?', vi:'Khi nào cô ấy sẽ chơi tennis?'},
+    passive:{ parts:[S,AUX('will'),AUX('be'),V('V3'),{r:'o',t:'(by O)'}],
       en:'Tennis will be played tomorrow.', vi2:'Tennis sẽ được chơi vào ngày mai.' } },
 
   fc: { row:2, col:1, name:'Future Continuous', vi:'Tương lai tiếp diễn',
-    parts:[{r:'s',t:'S'},{r:'aux',t:'will'},{r:'aux',t:'be'},{r:'v',t:'V-ing'},{r:'o',t:'O'}],
-    neg:'S + will + not + be + V-ing + O', ques:'Will + S + be + V-ing + O ?', wh:'Wh + will + S + be + V-ing + O ?',
-    negEx:{en:'She will not be playing tennis at 8pm tomorrow.', vi:'Cô ấy sẽ không đang chơi tennis lúc 8 giờ tối mai.'},
-    quesEx:{en:'Will she be playing tennis at 8pm tomorrow?', vi:'Cô ấy sẽ đang chơi tennis lúc 8 giờ tối mai chứ?'},
-    whEx:{en:'What will she be doing at 8pm tomorrow?', vi:'Cô ấy sẽ đang làm gì lúc 8 giờ tối mai?'},
     en:'She will be playing tennis at 8pm tomorrow.', vi2:'Cô ấy sẽ đang chơi tennis lúc 8 giờ tối mai.',
     signals:['at this time tomorrow','at + giờ tương lai'],
     usage:'Hành động sẽ <b>đang diễn ra</b> tại một thời điểm xác định trong tương lai.',
-    passive:{ parts:[{r:'s',t:'S'},{r:'aux',t:'will'},{r:'aux',t:'be'},{r:'aux',t:'being'},{r:'v',t:'V3'},{r:'o',t:'(by O)'}],
+    conj:{
+      skeleton:[S,AUX('will'),AUX('be'),V('V-ing'),O],
+      branches:[
+        { groups:[
+          { label:'will · mọi chủ ngữ (không đổi)', chips:[S,AUX('will'),AUX('be'),V('V-ing'),O], ex:{en:'She will be playing tennis at 8pm tomorrow.', vi:'Cô ấy sẽ đang chơi tennis lúc 8 giờ tối mai.'} }
+        ],
+        neg:{ groups:[
+          { label:'won\'t · mọi chủ ngữ', formula:'S + will not (won\'t) + be + V-ing + O', ex:{en:'She won\'t be playing tennis at 8pm tomorrow.', vi:'Cô ấy sẽ không đang chơi tennis lúc 8 giờ tối mai.'} }
+        ]},
+        ques:{ groups:[
+          { label:'Will · mọi chủ ngữ', formula:'Will + S + be + V-ing + O ?', ex:{en:'Will she be playing tennis at 8pm tomorrow?', vi:'Cô ấy sẽ đang chơi tennis lúc 8 giờ tối mai chứ?'} }
+        ]} }
+      ]
+    },
+    wh:'Wh + will + S + be + V-ing ?', whEx:{en:'What will she be doing at 8pm tomorrow?', vi:'Cô ấy sẽ đang làm gì lúc 8 giờ tối mai?'},
+    passive:{ parts:[S,AUX('will'),AUX('be'),AUX('being'),V('V3'),{r:'o',t:'(by O)'}],
       en:'Tennis will be being played at 8pm tomorrow.', vi2:'Tennis sẽ đang được chơi lúc 8 giờ tối mai.', rare:true,
       note:'Ít dùng vì khá cồng kềnh, nhưng vẫn xuất hiện trong một số tài liệu ngữ pháp.' } },
 
   fp: { row:2, col:2, name:'Future Perfect', vi:'Tương lai hoàn thành',
-    parts:[{r:'s',t:'S'},{r:'aux',t:'will'},{r:'aux',t:'have'},{r:'v',t:'V3'},{r:'o',t:'O'}],
-    neg:'S + will + not + have + V3 + O', ques:'Will + S + have + V3 + O ?', wh:'Wh + will + S + have + V3 + O ?',
-    negEx:{en:'She will not have played tennis by 8pm tomorrow.', vi:'Cô ấy sẽ chưa chơi tennis xong trước 8 giờ tối mai.'},
-    quesEx:{en:'Will she have played tennis by 8pm tomorrow?', vi:'Cô ấy sẽ chơi tennis xong trước 8 giờ tối mai chứ?'},
-    whEx:{en:'What will she have done by 8pm tomorrow?', vi:'Cô ấy sẽ làm xong việc gì trước 8 giờ tối mai?'},
     en:'She will have played tennis by 8pm tomorrow.', vi2:'Cô ấy sẽ chơi tennis xong trước 8 giờ tối mai.',
     signals:['by','by the time','before'],
     usage:'Hành động sẽ <b>hoàn thành trước một mốc</b> trong tương lai.',
-    passive:{ parts:[{r:'s',t:'S'},{r:'aux',t:'will'},{r:'aux',t:'have'},{r:'aux',t:'been'},{r:'v',t:'V3'},{r:'o',t:'(by O)'}],
+    conj:{
+      skeleton:[S,AUX('will'),AUX('have'),V('V3'),O],
+      branches:[
+        { groups:[
+          { label:'will · mọi chủ ngữ (không đổi)', chips:[S,AUX('will'),AUX('have'),V('V3'),O], ex:{en:'She will have played tennis by 8pm tomorrow.', vi:'Cô ấy sẽ chơi tennis xong trước 8 giờ tối mai.'} }
+        ],
+        neg:{ groups:[
+          { label:'won\'t · mọi chủ ngữ', formula:'S + will not (won\'t) + have + V3 + O', ex:{en:'She won\'t have played tennis by 8pm tomorrow.', vi:'Cô ấy sẽ chưa chơi tennis xong trước 8 giờ tối mai.'} }
+        ]},
+        ques:{ groups:[
+          { label:'Will · mọi chủ ngữ', formula:'Will + S + have + V3 + O ?', ex:{en:'Will she have played tennis by 8pm tomorrow?', vi:'Cô ấy sẽ chơi tennis xong trước 8 giờ tối mai chứ?'} }
+        ]} }
+      ]
+    },
+    wh:'Wh + will + S + have + V3 ?', whEx:{en:'What will she have done by 8pm tomorrow?', vi:'Cô ấy sẽ làm xong việc gì trước 8 giờ tối mai?'},
+    passive:{ parts:[S,AUX('will'),AUX('have'),AUX('been'),V('V3'),{r:'o',t:'(by O)'}],
       en:'Tennis will have been played by 8pm tomorrow.', vi2:'Tennis sẽ được chơi xong trước 8 giờ tối mai.' } },
 
   fpc:{ row:2, col:3, name:'Future Perfect Continuous', vi:'Tương lai hoàn thành tiếp diễn',
-    parts:[{r:'s',t:'S'},{r:'aux',t:'will'},{r:'aux',t:'have'},{r:'aux',t:'been'},{r:'v',t:'V-ing'},{r:'o',t:'O'}],
-    neg:'S + will + not + have + been + V-ing + O', ques:'Will + S + have + been + V-ing + O ?', wh:'Wh + will + S + have + been + V-ing + O ?',
-    negEx:{en:'She will not have been playing tennis for three hours by 8pm.', vi:'Cô ấy sẽ chưa chơi tennis được ba tiếng tính đến 8 giờ tối.'},
-    quesEx:{en:'Will she have been playing tennis for three hours by 8pm?', vi:'Đến 8 giờ tối, cô ấy sẽ chơi tennis được ba tiếng chứ?'},
-    whEx:{en:'How long will she have been playing tennis by 8pm?', vi:'Đến 8 giờ tối, cô ấy sẽ chơi tennis được bao lâu?'},
     en:'By 8pm, she will have been playing tennis for three hours.', vi2:'Đến 8 giờ tối, cô ấy sẽ chơi tennis được ba tiếng đồng hồ.',
     signals:['by the time','for + khoảng thời gian'],
     usage:'Nhấn mạnh <b>khoảng thời gian kéo dài</b> của hành động tính đến một mốc trong tương lai.',
-    passive:{ parts:[{r:'s',t:'S'},{r:'aux',t:'will'},{r:'aux',t:'have'},{r:'aux',t:'been'},{r:'aux',t:'being'},{r:'v',t:'V3'},{r:'o',t:'(by O)'}],
+    conj:{
+      skeleton:[S,AUX('will'),AUX('have'),AUX('been'),V('V-ing'),O],
+      branches:[
+        { groups:[
+          { label:'will · mọi chủ ngữ (không đổi)', chips:[S,AUX('will'),AUX('have'),AUX('been'),V('V-ing'),O], ex:{en:'By 8pm, she will have been playing tennis for three hours.', vi:'Đến 8 giờ tối, cô ấy sẽ chơi tennis được ba tiếng đồng hồ.'} }
+        ],
+        neg:{ groups:[
+          { label:'won\'t · mọi chủ ngữ', formula:'S + will not (won\'t) + have + been + V-ing + O', ex:{en:'She will not have been playing tennis for three hours by 8pm.', vi:'Cô ấy sẽ chưa chơi tennis được ba tiếng tính đến 8 giờ tối.'} }
+        ]},
+        ques:{ groups:[
+          { label:'Will · mọi chủ ngữ', formula:'Will + S + have + been + V-ing + O ?', ex:{en:'Will she have been playing tennis for three hours by 8pm?', vi:'Đến 8 giờ tối, cô ấy sẽ chơi tennis được ba tiếng chứ?'} }
+        ]} }
+      ]
+    },
+    wh:'Wh + will + S + have + been + V-ing ?', whEx:{en:'How long will she have been playing tennis by 8pm?', vi:'Đến 8 giờ tối, cô ấy sẽ chơi tennis được bao lâu?'},
+    passive:{ parts:[S,AUX('will'),AUX('have'),AUX('been'),AUX('being'),V('V3'),{r:'o',t:'(by O)'}],
       en:'Tennis will have been being played for three hours by 8pm.', vi2:'Đến 8 giờ tối, tennis sẽ được chơi trong ba tiếng.', rare:true,
       note:'Cấu trúc quá dài và cồng kềnh, gần như không dùng trong thực tế — học sinh không cần ghi nhớ, chỉ cần biết nó tồn tại.' } },
 
   fgt:{ name:'Be Going To', vi:'Tương lai gần (dự định)',
-    parts:[{r:'s',t:'S'},{r:'aux',t:'am/is/are'},{r:'aux',t:'going to'},{r:'v',t:'V1'},{r:'o',t:'O'}],
-    neg:'S + am/is/are + not + going to + V1 + O', ques:'Am/Is/Are + S + going to + V1 + O ?', wh:'Wh + am/is/are + S + going to + V1 + O ?',
-    negEx:{en:'She is not going to play tennis this weekend.', vi:'Cô ấy không định chơi tennis vào cuối tuần này.'},
-    quesEx:{en:'Is she going to play tennis this weekend?', vi:'Cô ấy có định chơi tennis vào cuối tuần này không?'},
-    whEx:{en:'What is she going to do this weekend?', vi:'Cô ấy định làm gì vào cuối tuần này?'},
     en:'She is going to play tennis this weekend.', vi2:'Cô ấy định chơi tennis vào cuối tuần này.',
     signals:['this weekend','next month','plan to','about to'],
     usage:'Diễn tả <b>dự định đã lên kế hoạch trước</b>, hoặc <b>dự đoán có căn cứ</b> ở hiện tại (khác với "will" — dự đoán/quyết định tức thời, không có kế hoạch trước).',
-    passive:{ parts:[{r:'s',t:'S'},{r:'be',t:'am/is/are'},{r:'aux',t:'going to'},{r:'aux',t:'be'},{r:'v',t:'V3'},{r:'o',t:'(by O)'}],
+    conj:{
+      skeleton:[S,BE('be'),AUX('going to'),V('V1'),O],
+      branches:[
+        { groups:[
+          { label:'am / is / are · mọi chủ ngữ', chips:[S,BE('am/is/are'),AUX('going to'),V('V1'),O], ex:{en:'She is going to play tennis this weekend.', vi:'Cô ấy định chơi tennis vào cuối tuần này.'} }
+        ],
+        neg:{ groups:[
+          { label:'am not / isn\'t / aren\'t', formula:'S + am/is/are + not + going to + V1 + O', ex:{en:'She isn\'t going to play tennis this weekend.', vi:'Cô ấy không định chơi tennis vào cuối tuần này.'} }
+        ]},
+        ques:{ groups:[
+          { label:'Am / Is / Are', formula:'Am/Is/Are + S + going to + V1 + O ?', ex:{en:'Is she going to play tennis this weekend?', vi:'Cô ấy có định chơi tennis vào cuối tuần này không?'} }
+        ]} }
+      ]
+    },
+    wh:'Wh + am/is/are + S + going to + V1 ?', whEx:{en:'What is she going to do this weekend?', vi:'Cô ấy định làm gì vào cuối tuần này?'},
+    passive:{ parts:[S,BE('am/is/are'),AUX('going to'),AUX('be'),V('V3'),{r:'o',t:'(by O)'}],
       en:'Tennis is going to be played this weekend.', vi2:'Tennis sẽ được chơi vào cuối tuần này.' } },
 };
 
@@ -460,7 +657,8 @@ document.getElementById('resetBtn').addEventListener('click', ()=>{
   renderCompare();
 });
 
-function formulaHTML(parts){
+/* ---------- renderers ---------- */
+function chipsHTML(parts){
   return parts.map(p=>`<span class="mchip ${p.r}">${p.t}</span>`).join('<span class="mpl">+</span>');
 }
 function pillList(arr){
@@ -469,24 +667,64 @@ function pillList(arr){
 function exampleHTML(en, vi){
   return `<div class="mexample"><div class="en">${en}</div><div class="vi">${vi}</div></div>`;
 }
+function groupBlockChips(label, chips, ex){
+  return `<div class="cgroup"><div class="cgroup-label">${label}</div>${chipsHTML(chips)}${exampleHTML(ex.en, ex.vi)}</div>`;
+}
+function groupBlockFormula(label, formula, ex){
+  return `<div class="cgroup"><div class="cgroup-label">${label}</div><div class="mform">${formula}</div>${exampleHTML(ex.en, ex.vi)}</div>`;
+}
+
+function renderAffirmative(t){
+  const c = t.conj;
+  let html = `<div class="mskeleton"><div class="mskeleton-label">Cấu trúc chung</div>${chipsHTML(c.skeleton)}</div>`;
+  c.branches.forEach(branch=>{
+    if(branch.title) html += `<div class="cbranch-title">${branch.title}</div>`;
+    branch.groups.forEach(g=> html += groupBlockChips(g.label, g.chips, g.ex));
+  });
+  return html;
+}
+function renderNeg(t){
+  const c = t.conj;
+  let html = '';
+  c.branches.forEach(branch=>{
+    if(branch.title) html += `<div class="cbranch-title">${branch.title}</div>`;
+    branch.neg.groups.forEach(g=> html += groupBlockFormula(g.label, g.formula, g.ex));
+  });
+  return html;
+}
+function renderQues(t){
+  const c = t.conj;
+  let html = '';
+  c.branches.forEach(branch=>{
+    if(branch.title) html += `<div class="cbranch-title">${branch.title}</div>`;
+    branch.ques.groups.forEach(g=> html += groupBlockFormula(g.label, g.formula, g.ex));
+  });
+  return html;
+}
 function passiveHTML(t){
   const p = t.passive;
   if(!p) return `<div class="musage">Thì này không có dạng bị động tương ứng.</div>`;
   let html = '';
+  html += `<div class="mactive-block">
+    <div class="mvoice-label active-lbl">① Chủ động (S + V + O)</div>
+    ${exampleHTML(t.en, t.vi2)}
+  </div>`;
+  html += `<div class="mconvert-arrow">chuyển đổi</div>`;
+  html += `<div class="mswap">Tân ngữ <b class="o">tennis</b> → lên làm chủ ngữ &nbsp;|&nbsp; chủ ngữ <b class="s">she</b> → lùi thành <b>(by O)</b></div>`;
+  html += `<div class="mvoice-label passive-lbl">② Bị động (S + be + V3)</div>`;
   if(p.rare) html += `<span class="rare-tag">Hiếm dùng</span><br>`;
-  html += formulaHTML(p.parts);
+  html += chipsHTML(p.parts);
   html += exampleHTML(p.en, p.vi2);
   if(p.note) html += `<div class="rare-note">${p.note}</div>`;
   return html;
 }
 
 const ROWS_DEF = [
-  { label:'Công thức (khẳng định)', render:t=>formulaHTML(t.parts) },
-  { label:'Ví dụ minh họa', render:t=>exampleHTML(t.en, t.vi2) },
-  { label:'Câu phủ định', render:t=>`<div class="mform">${t.neg}</div>${exampleHTML(t.negEx.en, t.negEx.vi)}` },
-  { label:'Câu nghi vấn', render:t=>`<div class="mform">${t.ques}</div>${exampleHTML(t.quesEx.en, t.quesEx.vi)}` },
+  { label:'Công thức (khẳng định)', render:renderAffirmative },
+  { label:'Câu phủ định', render:renderNeg },
+  { label:'Câu nghi vấn', render:renderQues },
   { label:'Câu hỏi Wh-', render:t=>`<div class="mform">${t.wh}</div>${exampleHTML(t.whEx.en, t.whEx.vi)}` },
-  { label:'Câu bị động', render:t=>passiveHTML(t) },
+  { label:'Câu bị động', render:passiveHTML },
   { label:'Dấu hiệu nhận biết', render:t=>pillList(t.signals) },
   { label:'Cách dùng', render:t=>`<div class="musage">${t.usage}</div>` },
 ];
@@ -497,9 +735,8 @@ function renderCompare(){
     return;
   }
   const n = selected.length;
-  let html = `<div class="compare-wrap"><div class="mgrid" style="grid-template-columns: 150px repeat(${n}, minmax(230px, 1fr));">`;
+  let html = `<div class="compare-wrap"><div class="mgrid" style="grid-template-columns: 150px repeat(${n}, minmax(270px, 1fr));">`;
 
-  // header row
   html += `<div class="mrow-h corner">Thành phần</div>`;
   selected.forEach(id=>{
     const t = TENSES[id];
@@ -509,7 +746,6 @@ function renderCompare(){
     </div>`;
   });
 
-  // data rows
   ROWS_DEF.forEach(row=>{
     html += `<div class="mrow-h">${row.label}</div>`;
     selected.forEach(id=>{
